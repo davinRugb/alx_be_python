@@ -21,7 +21,7 @@ def main():
     account = BankAccount(100)  # Example starting balance
 
     if len(sys.argv) < 2:
-        print("Usage: python main-0.py <command>:<amount>")
+        print("Usage: python main.py <command>:<amount>")
         print("Commands: deposit, withdraw, display")
         sys.exit(1)
 
@@ -40,6 +40,18 @@ def main():
         account.display_balance()
     else:
         print("Invalid command.")
+
+def command_line_deposit(self):
+     result = os.popen('python main-0.py deposit:50').read().strip()
+     self.assertEqual(result, "Deposited: $50.00")
+
+def command_line_withdraw(self):
+    result = os.popen('python main-0.py withdraw:20').read().strip()
+    self.assertEqual(result, "Withdrew: $20.00")
+
+def command_line_withdraw_insufficient_funds(self):
+     result = os.popen('python main-0.py withdraw:150').read().strip()
+     self.assertEqual(result, "Insufficient funds.")
 
 if __name__ == "__main__":
     main()
