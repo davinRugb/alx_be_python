@@ -1,3 +1,5 @@
+import math
+
 class Shape:
     def area(self):
          raise NotImplementedError("Subclasses must implement this method")
@@ -15,6 +17,6 @@ class Circle(Shape):
           self.radius = radius
 
      def area(self):
-          return 3.14159 * self.radius     
+          return 3.14159 * self.radius * self.radius    
      
           
